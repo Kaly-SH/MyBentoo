@@ -1,0 +1,19 @@
+# Fichiers sensibles
+.env
+*.env
+*.log
+
+# Git
+.git
+.gitignore
+
+# Node / Build
+node_modules
+dist
+build
+.cache
+
+# IDEs
+.vscode
+.idea
+.DS_Store

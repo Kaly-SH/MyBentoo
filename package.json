@@ -1,0 +1,27 @@
+{
+  "name": "MyBentoo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Kaly-SH/MyBentoo.git",
+  "author": "Kaly <sandra.heraud@ynov.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  
+  "scripts": {
+    "postinstall": "node ./.dev/postinstall.js",
+    "prepare": "husky",
+    "dev:api": "cd apps/api && nest start --watch",
+    "dev:frontend": "cd apps/MyBentoo-Frontend && vite",
+    "up": "docker-compose up -d",
+    "lint:api": "cd apps/MyBentoo-Backend && yarn run eslint .",
+    "lint:frontend": "cd apps/MyBentoo-Frontend && eslint .",
+    "lint": "yarn lint:MyBentoo-Backend && yarn lint:MyBentoo-Frontend"
+  },
+  
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}

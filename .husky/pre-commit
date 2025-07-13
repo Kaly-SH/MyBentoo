@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+sh .husky/scripts/lint.sh
+sh .husky/scripts/no-package-lock.sh
