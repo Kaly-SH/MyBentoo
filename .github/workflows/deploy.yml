@@ -18,7 +18,7 @@ jobs:
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
             echo "BRANCH=main" >> $GITHUB_ENV
-            echo "ENV=" >> $GITHUB_ENV
+            echo "ENV=prod" >> $GITHUB_ENV
             echo "DEPLOY_DIR=/var/www/MyBentoo" >> $GITHUB_ENV
           else
             echo "BRANCH=develop" >> $GITHUB_ENV
@@ -32,10 +32,4 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            cd $DEPLOY_DIR
-            git fetch origin
-            git reset --hard origin/${BRANCH}
-            yarn install --frozen-lockfile
-            yarn build
-            pm2 restart mybentoo-${ENV}-api
+          script: bash /var/www/MyBentoo/scripts/deploy.sh ${{ env.ENV }}
