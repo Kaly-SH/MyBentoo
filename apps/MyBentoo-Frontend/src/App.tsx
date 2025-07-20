@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import * as Sentry from '@sentry/react';
 import './App.css'
 
 function App() {
@@ -20,6 +21,18 @@ function App() {
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
+        </button>
+        <button
+          onClick={() => {
+            try {
+              throw new Error("This is your first error!");
+            } catch (error) {
+              console.error('Erreur capturée localement :', error);
+              Sentry.captureException(error);
+            }
+          }}
+        >
+          Break the world
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
