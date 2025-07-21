@@ -12,7 +12,7 @@
   
   "scripts": {
     "postinstall": "node ./.dev/postinstall.js",
-    "build": "yarn workspace @mybentoo/backend build",
+    "build": "yarn workspace @MyBentoo-Backend build",
     "prepare": "husky",
     "dev:api": "cd apps/api && nest start --watch",
     "dev:frontend": "cd apps/MyBentoo-Frontend && vite",
