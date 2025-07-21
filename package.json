@@ -12,6 +12,7 @@
   
   "scripts": {
     "postinstall": "node ./.dev/postinstall.js",
+    "build": "yarn workspace @mybentoo/backend build",
     "prepare": "husky",
     "dev:api": "cd apps/api && nest start --watch",
     "dev:frontend": "cd apps/MyBentoo-Frontend && vite",
@@ -23,5 +24,6 @@
   
   "devDependencies": {
     "husky": "^9.1.7"
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }
