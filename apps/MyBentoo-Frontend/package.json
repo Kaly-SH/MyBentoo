@@ -1,5 +1,5 @@
 {
-  "name": "mybentoo-frontend",
+  "name": "@mybentoo/frontend",
   "description": "Frontend for MyBentoo application",
   "private": true,
   "version": "0.0.0",
