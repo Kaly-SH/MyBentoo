@@ -4,7 +4,7 @@ import Logo from './Logo';
 function App() {
   return (
     <>
-      <div>
+      <div className="container">
         <Logo />
         <h1>Site en construction</h1>
       </div>
