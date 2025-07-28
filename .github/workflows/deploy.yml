@@ -1,0 +1,32 @@
+name: Deploy over SSH
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            echo "🚀 Déploiement pour la branche : ${{ github.ref_name }}"
+            if [ "${{ github.ref_name }}" == "main" ]; then
+              bash /var/www/MyBentoo/scripts/deploy.sh prod
+            elif [ "${{ github.ref_name }}" == "develop" ]; then
+              bash /var/www/MyBentoo/scripts/deploy.sh preprod
+            else
+              echo "❌ Branche non configurée pour le déploiement : ${{ github.ref_name }}"
+              exit 1
+            fi

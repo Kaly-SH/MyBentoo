@@ -1,5 +1,5 @@
 {
-  "name": "mybentoo-frontend",
+  "name": "@mybentoo/frontend",
   "description": "Frontend for MyBentoo application",
   "private": true,
   "version": "0.0.0",
@@ -11,6 +11,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@sentry/browser": "^9.38.0",
+    "@sentry/react": "^9.42.0",
+    "@sentry/tracing": "^7.120.3",
+    "@sentry/vite-plugin": "^3.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

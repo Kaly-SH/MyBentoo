@@ -9,9 +9,9 @@
   "workspaces": [
     "apps/*"
   ],
-  
   "scripts": {
     "postinstall": "node ./.dev/postinstall.js",
+    "build": "yarn workspace @mybentoo/backend build && yarn workspace @mybentoo/frontend build",
     "prepare": "husky",
     "dev:api": "cd apps/api && nest start --watch",
     "dev:frontend": "cd apps/MyBentoo-Frontend && vite",
@@ -20,8 +20,8 @@
     "lint:frontend": "cd apps/MyBentoo-Frontend && eslint .",
     "lint": "yarn lint:MyBentoo-Backend && yarn lint:MyBentoo-Frontend"
   },
-  
   "devDependencies": {
     "husky": "^9.1.7"
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }
