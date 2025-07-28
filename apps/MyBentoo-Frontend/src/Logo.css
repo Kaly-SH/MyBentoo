@@ -1,0 +1,49 @@
+.logo-container {
+  position: relative;
+  width: min(400px, 50%);
+  aspect-ratio: 1 / 1; 
+  margin: 0 auto;
+}
+
+.logo-daruma {
+  position: absolute;
+  width: 55%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transform-origin: center;
+  transform: rotate(20deg) translate(-50%, -50%);
+  top: 57%;
+  left: 39%;
+}
+
+.logo-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotate 10s linear infinite;
+  z-index: 1;
+}
+
+.logo-text {
+  width: 150%;
+  height: auto;
+  transform-origin: center;
+}
+
+/* Animation pour faire tourner le texte */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
