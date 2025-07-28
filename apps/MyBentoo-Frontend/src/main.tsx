@@ -6,7 +6,7 @@ import * as Sentry from '@sentry/react';
 
 Sentry.init({
   dsn: import.meta.env.VITE_SENTRY_DSN,
-  environment: 'development', 
+  environment: import.meta.env.DEPLOY_ENV, 
 });
 
 createRoot(document.getElementById('root')!).render(
