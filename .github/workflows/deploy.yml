@@ -5,11 +5,16 @@ on:
     branches:
       - main
       - develop
+  pull_request:
+    types:
+      - closed
 
 jobs:
   deploy:
     name: Deploy to VPS
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && (github.ref_name == 'main' || github.ref_name == 'develop')
+
 
     steps:
       - name: Checkout code
